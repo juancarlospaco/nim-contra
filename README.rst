@@ -2,7 +2,8 @@ Contra
 ======
 
 - Lightweight Contract Programming, Design by Contract, on 9 LoC.
-- Produces no code at all when build for release, works on NimScript and JavaScript too, `KISS <http://wikipedia.org/wiki/KISS_principle>`_
+- Produces no code at all when build for release, `KISS <http://wikipedia.org/wiki/KISS_principle>`_
+- Works on NimScript, JavaScript, ``{.compiletime.}`` and ``static:``.
 
 .. image:: https://raw.githubusercontent.com/juancarlospaco/nim-contra/master/contra.jpg
 
@@ -10,6 +11,7 @@ Use
 ---
 
 .. code-block:: nim
+  import contra
 
   func funcWithContract(mustBePositive: int): int =
     preconditions mustBePositive > 0, mustBePositive > -1 ## Require (Preconditions)
@@ -56,6 +58,23 @@ FAQ
 
   $ nim e example.nim
   Error: undeclared identifier: 'deepCopy'
+
+  $ cat example2compiletime.nim
+  import contracts
+  from math import sqrt, floor
+  proc isqrt[T: SomeInteger](x: T): T {.contractual, compiletime.} =
+    require:
+      x >= 0
+    ensure:
+      result * result <= x
+      (result+1) * (result+1) > x
+    body:
+      (T)(x.toBiggestFloat().sqrt().floor().toBiggestInt())
+  echo isqrt(18)
+  echo isqrt(-8)
+
+  $ nim c -r example2compiletime.nim
+  Error: request to generate code for .compileTime proc: isqrt
 
   $ cloc ~/.nimble/pkgs/contracts-0.1.0/
   Language          files         blank        comment        code
