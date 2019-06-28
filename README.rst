@@ -28,6 +28,7 @@ Use
 
 - ``preconditions`` takes preconditions separated by commas, asserts on arguments or variables.
 - ``postconditions`` takes postconditions separated by commas, must assert on ``result``.
+- ``-d:noContracts`` Disables Contracts, no code is produced, can be used independently of ``-d:release``.
 
 
 Install
