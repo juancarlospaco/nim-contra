@@ -11,13 +11,13 @@
 
 template preconditions*(requires: varargs[bool]) =
   ## Require (Preconditions) for runtime Contract Programming on proc/func.
-  when not defined(release):
+  when not defined(release) or defined(noContracts):
     for i, contractPrecondition in requires: assert(contractPrecondition,
         "\nContract Precondition (Require) failed assert on position: " & $i)
 
 template postconditions*(ensures: varargs[bool]) =
   ## Ensure (Postconditions) for runtime Contract Programming on proc/func.
-  when not defined(release):
+  when not defined(release) or defined(noContracts):
     defer:
       for i, contractPostcondition in ensures: assert(contractPostcondition,
           "\nContract Postcondition (Ensure) failed assert on position: " & $i)
