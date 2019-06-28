@@ -20,6 +20,9 @@ Use
   discard funcWithContract(2)
   # discard funcWithContract(0)
 
+- ``preconditions`` takes preconditions separated by commas, asserts on arguments or variables.
+- ``postconditions`` takes postconditions separated by commas, asserts on ``result``.
+
 
 Install
 -------
@@ -63,13 +66,19 @@ FAQ
 - Whats Contract Programming, Design by Contract?.
 
 https://en.wikipedia.org/wiki/Defensive_programming#Other_techniques
+
 http://stackoverflow.com/questions/787643/benefits-of-assertive-programming
 
 - What about No Side Effects?.
 
 https://nim-lang.org/docs/manual.html#procedures-func
+
 https://nim-lang.org/docs/manual.html#pragmas-nosideeffect-pragma
 
 - What about Types?.
 
 https://nim-lang.org/docs/manual_experimental.html#concepts
+
+- More Documentation?.
+
+``nim doc contra.nim``
