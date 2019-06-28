@@ -21,7 +21,7 @@ Use
     result = mustBePositive - 1 ## Mimic some logic, notice theres no "body" block
 
   discard funcWithContract(2)
-  # discard funcWithContract(0)
+  # discard funcWithContract(0)  # Uncomment to see it fail as expected.
 
 
 - ``preconditions`` takes preconditions separated by commas, asserts on arguments or variables.
@@ -103,6 +103,11 @@ https://nim-lang.org/docs/manual_experimental.html#concepts
 - How to use this at Compile Time?.
 
 Add ``{.compiletime.}`` or ``static:``.
+
+- What about ``assume`` blocks?.
+
+Assume blocks produce no code at all and are only meant for human reading only,
+you can do that using ``discard`` or similar contruct on Nim. KISS.
 
 - More Documentation?.
 
