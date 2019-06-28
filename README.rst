@@ -41,7 +41,7 @@ FAQ
 
 - Why not just use `Contracts <https://github.com/Udiknedormin/NimContracts#hello-contracts>`_ ?
 
-.. code-block:: nim
+.. code-block::
 
   $ cat example.nim
   import contracts
