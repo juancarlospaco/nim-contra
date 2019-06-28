@@ -116,6 +116,11 @@ you can do that using ``discard`` or similar contruct on Nim. KISS.
 
 ``from contra import preconditions as require`` or similar.
 
+- If I add this to my project I am forced to use it everywhere?.
+
+No. The code will just work on blocks without Contract.
+Is recommended to at least use it con "core" functionality.
+
 - More Documentation?.
 
 ``nim doc contra.nim``
