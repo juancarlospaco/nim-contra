@@ -118,7 +118,9 @@ you can do that using ``discard`` or similar contruct on Nim. KISS.
 
 - If I add this to my project I am forced to use it everywhere?.
 
-No. The code will just work on blocks without Contract.
+No.
+
+The code will just work on blocks without Contract.
 You only need to add 2 lines to your existing code (1 for Preconditions, 1 for Postconditions).
 Is recommended to at least use it con "core" functionality.
 
