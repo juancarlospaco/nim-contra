@@ -1,7 +1,7 @@
 Contra
 ======
 
-- Lightweight Contract Programming, Design by Contract, on 9 LoC.
+- Lightweight and fast Contract Programming, Design by Contract, on 9 lines of code.
 - Produces no code at all when build for release, `KISS <http://wikipedia.org/wiki/KISS_principle>`_
 - Works on NimScript, JavaScript, ``{.compiletime.}`` and ``static:``.
 
