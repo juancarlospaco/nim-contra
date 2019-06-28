@@ -111,6 +111,10 @@ Add ``{.compiletime.}`` or ``static:``.
 Assume blocks produce no code at all and are only meant for human reading only,
 you can do that using ``discard`` or similar contruct on Nim. KISS.
 
+- I prefer the naming ``require`` and ``ensure`` ?.
+
+``from contra import preconditions as require`` or similar.
+
 - More Documentation?.
 
 ``nim doc contra.nim``
