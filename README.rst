@@ -98,6 +98,10 @@ https://nim-lang.org/docs/manual.html#pragmas-nosideeffect-pragma
 
 https://nim-lang.org/docs/manual_experimental.html#concepts
 
+- How to use this at Compile Time?.
+
+Add ``{.compiletime.}`` or ``static:``.
+
 - More Documentation?.
 
 ``nim doc contra.nim``
