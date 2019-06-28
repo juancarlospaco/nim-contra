@@ -2,10 +2,12 @@ Contra
 ======
 
 - Lightweight and fast Contract Programming, Design by Contract, on 9 lines of code.
+
+.. image:: https://raw.githubusercontent.com/juancarlospaco/nim-contra/master/contra.jpg
+
 - Produces no code at all when build for release, `KISS <http://wikipedia.org/wiki/KISS_principle>`_
 - Works on NimScript, JavaScript, ``{.compiletime.}`` and ``static:``.
 
-.. image:: https://raw.githubusercontent.com/juancarlospaco/nim-contra/master/contra.jpg
 
 Use
 ---
