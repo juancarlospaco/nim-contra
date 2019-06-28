@@ -11,6 +11,7 @@ Use
 ---
 
 .. code-block:: nim
+
   import contra
 
   func funcWithContract(mustBePositive: int): int =
@@ -21,6 +22,7 @@ Use
 
   discard funcWithContract(2)
   # discard funcWithContract(0)
+
 
 - ``preconditions`` takes preconditions separated by commas, asserts on arguments or variables.
 - ``postconditions`` takes postconditions separated by commas, must assert on ``result``.
