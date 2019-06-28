@@ -2,7 +2,7 @@ Contra
 ======
 
 - Lightweight Contract Programming, Design by Contract, on 9 LoC.
-- Produces no code when build for release, works on NimScript and JavaScript too.
+- Produces no code at all when build for release, works on NimScript and JavaScript too.
 
 .. image:: https://raw.githubusercontent.com/juancarlospaco/nim-contra/master/contra.jpg
 
@@ -63,13 +63,13 @@ FAQ
 - Whats Contract Programming, Design by Contract?.
 
 https://en.wikipedia.org/wiki/Defensive_programming#Other_techniques
-
 http://stackoverflow.com/questions/787643/benefits-of-assertive-programming
 
 - What about No Side Effects?.
 
 https://nim-lang.org/docs/manual.html#procedures-func
-
 https://nim-lang.org/docs/manual.html#pragmas-nosideeffect-pragma
+
+- What about Types?.
 
 https://nim-lang.org/docs/manual_experimental.html#concepts
