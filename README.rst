@@ -2,7 +2,7 @@ Contra
 ======
 
 - Lightweight Contract Programming, Design by Contract, on 9 LoC.
-- Produces no code at all when build for release, works on NimScript and JavaScript too.
+- Produces no code at all when build for release, works on NimScript and JavaScript too, `KISS <http://wikipedia.org/wiki/KISS_principle>`_
 
 .. image:: https://raw.githubusercontent.com/juancarlospaco/nim-contra/master/contra.jpg
 
@@ -21,7 +21,7 @@ Use
   # discard funcWithContract(0)
 
 - ``preconditions`` takes preconditions separated by commas, asserts on arguments or variables.
-- ``postconditions`` takes postconditions separated by commas, asserts on ``result``.
+- ``postconditions`` takes postconditions separated by commas, must assert on ``result``.
 
 
 Install
