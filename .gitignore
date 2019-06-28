@@ -1,1 +1,4 @@
-nimcache/
+.vscode/
+*.c
+*.h
+*.o
