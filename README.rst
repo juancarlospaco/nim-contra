@@ -1,7 +1,7 @@
 Contra
 ======
 
-- Lightweight Contract Programming, Design by Contract, on 9 LoC.
+- Lightweight Contract Programming, Design by Contract, on 9 LoC, produces no code when build for release, works on NimScript and JavaScript too.
 
 .. image:: https://raw.githubusercontent.com/juancarlospaco/nim-contra/master/contra.jpg
 
@@ -16,7 +16,6 @@ FAQ
   $ cat example.nim
   import contracts
   from math import sqrt, floor
-
   proc isqrt[T: SomeInteger](x: T): T {.contractual.} =
     require:
       x >= 0
@@ -33,3 +32,8 @@ FAQ
 
   $ nim e example.nim
   Error: undeclared identifier: 'deepCopy'
+
+  $ cloc ~/.nimble/pkgs/contracts-0.1.0/
+  Language          files         blank        comment        code
+  ----------------------------------------------------------------
+  Nim               21            119          515            640
