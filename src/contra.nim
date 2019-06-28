@@ -1,7 +1,7 @@
 ## Contra
 ## ======
 ##
-## Lightweight runtime Contract Programming(DbC),designed for ``proc``/``func``,
+## Lightweight Contract Programming(DbC),designed for ``proc``/``func``,
 ## 2 Templates for Preconditions (Require) & Postconditions (Ensure) on 9 LoC.
 ## For performance it wont generate any code when build for release. Recommended
 ## `func <https://nim-lang.org/docs/manual.html#procedures-func>`_ and use of
@@ -10,13 +10,13 @@
 ## - http://stackoverflow.com/questions/787643/benefits-of-assertive-programming
 
 template preconditions*(requires: varargs[bool]) =
-  ## Require (Preconditions) for runtime Contract Programming on proc/func.
+  ## Require (Preconditions) for Contract Programming on proc/func.
   when not defined(release) or defined(noContracts):
     for i, contractPrecondition in requires: assert(contractPrecondition,
         "\nContract Precondition (Require) failed assert on position: " & $i)
 
 template postconditions*(ensures: varargs[bool]) =
-  ## Ensure (Postconditions) for runtime Contract Programming on proc/func.
+  ## Ensure (Postconditions) for Contract Programming on proc/func.
   when not defined(release) or defined(noContracts):
     defer:
       for i, contractPostcondition in ensures: assert(contractPostcondition,
