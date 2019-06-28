@@ -6,9 +6,10 @@ Contra
 .. image:: https://raw.githubusercontent.com/juancarlospaco/nim-contra/master/contra.jpg
 
 
-# FAQ
+FAQ
+---
 
-- Why not just use [Contracts](https://github.com/Udiknedormin/NimContracts#hello-contracts) ?
+- Why not just use `Contracts <https://github.com/Udiknedormin/NimContracts#hello-contracts>`_ ?
 
 .. code-block:: nim
 
