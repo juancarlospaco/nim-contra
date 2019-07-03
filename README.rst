@@ -89,6 +89,8 @@ FAQ
 
 - Whats Contract Programming, Design by Contract?.
 
+https://www.youtube.com/watch?v=DRVoh5XiAZo
+
 https://en.wikipedia.org/wiki/Defensive_programming#Other_techniques
 
 http://stackoverflow.com/questions/787643/benefits-of-assertive-programming
