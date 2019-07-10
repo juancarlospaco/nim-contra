@@ -1,7 +1,7 @@
 Contra
 ======
 
-- Lightweight and fast Contract Programming, Design by Contract, on 9 lines of code.
+- Lightweight and fast Contract Programming, Design by Contract, on 9 lines of code, Zero cost at runtime.
 
 .. image:: https://raw.githubusercontent.com/juancarlospaco/nim-contra/master/contra.jpg
 
