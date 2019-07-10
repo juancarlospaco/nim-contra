@@ -126,9 +126,13 @@ This library does NOT uses nor needs ``body`` blocks.
 
 You can pass Invariants on the ``postconditions`` block.
 
-- What about ``forall`` blocks?.
+- What about ``forall`` and ``forsome`` blocks?.
 
 Use ``sequtils.filterIt``, ``sequtils.mapIt``, ``sequtils.keepItIf``, ``sequtils.allIt``, ``sequtils.anyIt``, etc.
+
+- What about ``ghost`` block?.
+
+Use ``when defined(release):`` or ``when defined(contracts):``
 
 - Whats the performance and speed cost of using Contra?.
 
