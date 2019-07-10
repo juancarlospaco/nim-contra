@@ -120,7 +120,7 @@ you can do that using ``discard`` or similar contruct on Nim. KISS.
 
 - What about ``body`` blocks?.
 
-``body`` blocks are NOT needed.
+This library does NOT uses nor needs ``body`` blocks.
 
 - What about ``invariant`` blocks?.
 
