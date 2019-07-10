@@ -118,6 +118,22 @@ Add ``{.compiletime.}`` or ``static:``.
 Assume blocks produce no code at all and are only meant for human reading only,
 you can do that using ``discard`` or similar contruct on Nim. KISS.
 
+- What about ``body`` blocks?.
+
+``body`` blocks are NOT needed.
+
+- What about ``invariant`` blocks?.
+
+You can pass Invariants on the ``postconditions`` block.
+
+- What about ``forall`` blocks?.
+
+Use ``sequtils.filterIt``, ``sequtils.mapIt``, ``sequtils.keepItIf``, ``sequtils.allIt``, ``sequtils.anyIt``, etc.
+
+- Whats the performance and speed cost of using Contra?.
+
+Zero cost at runtime, since it produces no code at all when build for Release.
+
 - I prefer the naming ``require`` and ``ensure`` ?.
 
 .. code-block:: nim
