@@ -26,8 +26,10 @@ Use
   # discard funcWithContract(0)  # Uncomment to see it fail as expected.
 
 
-- ``preconditions`` takes preconditions separated by commas, asserts on arguments or variables.
-- ``postconditions`` takes postconditions separated by commas, must assert on ``result``.
+- ``preconditions`` takes preconditions separated by commas, asserts on arguments or local variables.
+- ``postconditions`` takes postconditions separated by commas, must assert on ``result``, can assert on local variables.
+- ``postconditions`` must be AFTER ``preconditions``.
+- ``postconditions`` must NOT be repeated.
 - ``-d:contracts`` Force enable Contracts, can be used independently of ``-d:release``.
 
 
