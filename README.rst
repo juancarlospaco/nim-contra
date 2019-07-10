@@ -120,7 +120,19 @@ you can do that using ``discard`` or similar contruct on Nim. KISS.
 
 - I prefer the naming ``require`` and ``ensure`` ?.
 
-``from contra import preconditions as require`` or similar.
+.. code-block:: nim
+  
+  from contra import preconditions as require
+  from contra import postconditions as ensure
+
+
+- I prefer the naming ``pre`` and ``post`` ?.
+
+.. code-block:: nim
+  
+  from contra import preconditions as pre
+  from contra import postconditions as post
+
 
 - If I add this to my project I am forced to use it everywhere?.
 
