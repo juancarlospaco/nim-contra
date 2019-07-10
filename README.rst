@@ -1,9 +1,10 @@
 Contra
 ======
 
-- Lightweight and fast Contract Programming, Design by Contract, on 9 lines of code, Zero cost at runtime.
+- Lightweight and fast Contract Programming, Design by Contract, on 9 lines of code, zero cost at runtime.
 
 .. image:: https://raw.githubusercontent.com/juancarlospaco/nim-contra/master/contra.jpg
+  :align: center
 
 - Produces no code at all when build for release, `KISS <http://wikipedia.org/wiki/KISS_principle>`_
 - Works on NimScript, JavaScript, ``{.compiletime.}`` and ``static:``.
@@ -165,3 +166,6 @@ Is recommended to at least use it con "core" functionality.
 - More Documentation?.
 
 ``nim doc contra.nim``
+
+
+*" TDD is Poor-Man's Contracts "*
