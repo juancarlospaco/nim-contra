@@ -97,6 +97,8 @@ https://en.wikipedia.org/wiki/Defensive_programming#Other_techniques
 
 http://stackoverflow.com/questions/787643/benefits-of-assertive-programming
 
+https://en.wikipedia.org/wiki/Hoare_logic#Hoare_triple
+
 - What about No Side Effects?.
 
 https://nim-lang.org/docs/manual.html#procedures-func
