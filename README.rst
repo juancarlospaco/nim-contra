@@ -30,16 +30,38 @@ Use
   # discard funcWithContract(0)  # Uncomment to see it fail as expected.
 
 
+Use
+---
+
+**Contract Preconditions:**
+
 - ``preconditions`` takes preconditions separated by commas, asserts on arguments or local variables.
+
+**Contract Postconditions:**
+
 - ``postconditions`` takes postconditions separated by commas, must assert on ``result``, can assert on local variables.
+
+**Contracts Preconditions and Postconditions:**
+
 - ``postconditions`` must be AFTER ``preconditions``.
 - ``postconditions`` must NOT be repeated.
 - ``-d:contracts`` Force enable Contracts, can be used independently of ``-d:release``.
+
+**Security Hardened Mode:**
+
 - ``-d:hardened`` Force enable Security Hardened mode, can be used independently of ``-d:release``.
 - ``-d:hardened`` requires ``-d:contracts``.
-- Security Hardened mode only works for default target backend. Produces no code at all if ``-d:hardened`` is not defined.
-- ``hardenedBuild()`` is 1 Template, takes no arguments, returns nothing, call it on the root top of your main module.
-- ``-d:glibc`` Force compatibility with GlibC 2.5, x86_64, Linux, allows to run on very old Linux compiling on very new Linux, for exaple you can compile on Arch Linux and run on Debian Old Stable and old CentOS, can be used independently of ``-d:release``.
+- Security Hardened mode only works for default target backend.
+- Produces no code at all if ``-d:hardened`` is not defined.
+- ``hardenedBuild()`` is 1 Template, takes no arguments, returns nothing.
+- ``hardenedBuild()`` must be called on the root top of your main module.
+
+**GlibC Compatibility Mode**
+
+- ``-d:glibc`` Force compatibility with GlibC 2.5, can be used independently of ``-d:release``.
+- ``-d:glibc`` allows to run on very old Linux compiling on very new Linux.
+- For example you can compile on Arch Linux and run on Debian Old Stable and old CentOS.
+- Only available for Linux on x86_64.
 
 
 Install
