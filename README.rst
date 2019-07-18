@@ -60,6 +60,7 @@ Use
 
 - ``-d:glibc`` Force compatibility with GlibC 2.5, can be used independently of ``-d:release``.
 - ``-d:glibc`` allows to run on very old Linux compiling on very new Linux.
+- ``-d:glibc`` requires calling ``hardenedBuild()`` on the code.
 - For example you can compile on Arch Linux and run on Debian Old Stable and old CentOS.
 - Only available for Linux on x86_64.
 
