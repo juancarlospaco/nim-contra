@@ -2,6 +2,7 @@ Contra
 ======
 
 - Lightweight and fast Contract Programming, Design by Contract, on 9 lines of code, zero cost at runtime.
+- Optional `Security Hardened <https://en.wikipedia.org/wiki/Hardening_%28computing%29#Binary_hardening>`_ mode via template (based from `Debian Hardened <https://wiki.debian.org/Hardening>`_ & `Gentoo Hardened <https://wiki.gentoo.org/wiki/Hardened_Gentoo>`_).
 
 .. image:: https://raw.githubusercontent.com/juancarlospaco/nim-contra/master/contra.jpg
   :align: center
@@ -16,6 +17,8 @@ Use
 .. code-block:: nim
 
   import contra
+
+  hardenedBuild()  # Security Hardened mode enabled, compile with:  -d:hardened
 
   func funcWithContract(mustBePositive: int): int =
     preconditions mustBePositive > 0, mustBePositive > -1 ## Require (Preconditions)
@@ -32,6 +35,10 @@ Use
 - ``postconditions`` must be AFTER ``preconditions``.
 - ``postconditions`` must NOT be repeated.
 - ``-d:contracts`` Force enable Contracts, can be used independently of ``-d:release``.
+- ``-d:hardened`` Force enable Security Hardened mode, can be used independently of ``-d:release``.
+- ``-d:hardened`` requires ``-d:contracts``.
+- Security Hardened mode only works for default target backend. Produces no code at all if ``-d:hardened`` is not defined.
+- ``hardenedBuild()`` is 1 Template, takes no arguments, returns nothing, call it on the root top of your main module.
 
 
 Install
@@ -142,7 +149,7 @@ Zero cost at runtime, since it produces no code at all when build for Release.
 - I prefer the naming ``require`` and ``ensure`` ?.
 
 .. code-block:: nim
-  
+
   from contra import preconditions as require
   from contra import postconditions as ensure
 
@@ -150,7 +157,7 @@ Zero cost at runtime, since it produces no code at all when build for Release.
 - I prefer the naming ``pre`` and ``post`` ?.
 
 .. code-block:: nim
-  
+
   from contra import preconditions as pre
   from contra import postconditions as post
 
@@ -162,6 +169,10 @@ No.
 The code will just work on blocks without Contract.
 You only need to add 2 lines to your existing code (1 for Preconditions, 1 for Postconditions).
 Is recommended to at least use it con "core" functionality.
+
+- Whats Hardened mode ?.
+
+https://en.wikipedia.org/wiki/Hardening_%28computing%29#Binary_hardening
 
 - More Documentation?.
 
