@@ -55,6 +55,7 @@ Use
 - Produces no code at all if ``-d:hardened`` is not defined.
 - ``hardenedBuild()`` is 1 Template, takes no arguments, returns nothing.
 - ``hardenedBuild()`` must be called on the root top of your main module.
+- Hardened build is ideal companion for a Contracts module, still optional anyway.
 
 **GlibC Compatibility Mode**
 
