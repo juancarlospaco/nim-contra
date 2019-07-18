@@ -39,6 +39,7 @@ Use
 - ``-d:hardened`` requires ``-d:contracts``.
 - Security Hardened mode only works for default target backend. Produces no code at all if ``-d:hardened`` is not defined.
 - ``hardenedBuild()`` is 1 Template, takes no arguments, returns nothing, call it on the root top of your main module.
+- ``-d:glibc`` Force compatibility with GlibC 2.5, x86_64, Linux, allows to run on very old Linux compiling on very new Linux, for exaple you can compile on Arch Linux and run on Debian Old Stable and old CentOS, can be used independently of ``-d:release``.
 
 
 Install
