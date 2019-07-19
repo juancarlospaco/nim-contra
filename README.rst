@@ -2,7 +2,7 @@ Contra
 ======
 
 - Lightweight and fast Contract Programming, Design by Contract, on 9 lines of code, zero cost at runtime.
-- Optional `Security Hardened <https://en.wikipedia.org/wiki/Hardening_%28computing%29#Binary_hardening>`_ mode via template (based from `Debian Hardened <https://wiki.debian.org/Hardening>`_ & `Gentoo Hardened <https://wiki.gentoo.org/wiki/Hardened_Gentoo>`_).
+- Optional `Security Hardened <https://en.wikipedia.org/wiki/Hardening_%28computing%29#Binary_hardening>`_ mode via template (based from `Debian Hardened <https://wiki.debian.org/Hardening>`_ & `Gentoo Hardened <https://wiki.gentoo.org/wiki/Hardened_Gentoo>`_, checked with `hardening-check <https://bitbucket.org/Alexander-Shukaev/hardening-check>`_).
 
 .. image:: https://raw.githubusercontent.com/juancarlospaco/nim-contra/master/contra.jpg
   :align: center
