@@ -43,12 +43,6 @@ template hardenedBuild*() =
   when defined(release):
     {.passL: "-s".}
 
-  when defined(glibc) and defined(gcc) and defined(amd64) and defined(linux) and not defined(objc) and not defined(js) and not defined(cpp):
-    {.hint: "Compatibility with GlibC >= 2.5 is enabled.".}
-    import os
-    const force_link_glibc_25 = currentSourcePath().splitPath.head / "force_link_glibc_25.h"
-    {.passC: "-include " & force_link_glibc_25.}
-
 
 # when isMainModule:
 runnableExamples:

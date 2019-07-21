@@ -57,15 +57,6 @@ Use
 - ``hardenedBuild()`` must be called on the root top of your main module.
 - Hardened build is ideal companion for a Contracts module, still optional anyway.
 
-**GlibC Compatibility Mode**
-
-- ``-d:glibc`` Force compatibility with GlibC 2.5, can be used independently of ``-d:release``.
-- ``-d:glibc`` allows to run on very old Linux compiling on very new Linux.
-- ``-d:glibc`` requires calling ``hardenedBuild()`` on the code.
-- For example you can compile on Arch Linux and run on Debian Old Stable and old CentOS.
-- Only available for Linux on x86_64.
-- Compatibility with Stable Linux Server OS is ideal companion for Hardened build and Contracts, still optional anyway.
-
 
 Install
 -------
