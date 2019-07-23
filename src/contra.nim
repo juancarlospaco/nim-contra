@@ -10,6 +10,7 @@
 ## - https://en.wikipedia.org/wiki/Defensive_programming#Other_techniques
 ## - http://stackoverflow.com/questions/787643/benefits-of-assertive-programming
 
+
 template preconditions*(requires: varargs[bool]) =
   ## Require (Preconditions) for Contract Programming on proc/func.
   when not defined(release) or defined(contracts):
@@ -22,6 +23,7 @@ template postconditions*(ensures: varargs[bool]) =
     defer:
       for i, contractPostcondition in ensures: assert(contractPostcondition,
           "\nContract Postcondition (Ensure) failed assert on position: " & $i)
+
 
 template hardenedBuild*() =
   ## Optional Security Hardened mode (Based from Debian Hardened & Gentoo Hardened).
@@ -44,8 +46,17 @@ template hardenedBuild*() =
     {.passL: "-s", passC: "-fno-ident".}
 
 
+template deepCopy*(immutableVariable, changes: untyped): untyped =
+  ## Mimic Scalas ``val immutableButChanged = immutable.copy(attribute = 9)``.
+  ## Change Immutable Variables, and remain Immutable, but with mutated copy.
+  block:  # Original idea by Solitude. See the runnableExamples.
+    var this {.inject.} = system.deepCopy(immutableVariable)
+    changes
+    this
+
+
 when isMainModule:
-  ##runnableExamples:
+  # runnableExamples:
   hardenedBuild() ## Security Hardened mode enabled, compile with:  -d:hardened
 
   func funcWithContract(mustBePositive: int): int {.compiletime.} =
@@ -57,3 +68,16 @@ when isMainModule:
   func funcWithoutContract(mustBePositive: int): int =
     result = mustBePositive - 1 ## Same func but without Contract templates.
   echo funcWithoutContract(1) > 0, " <-- This must be 'true', if not is a Bug!"
+
+  type Person = object # Changing Immutable Variables,into Immutable Variables.
+    name: string
+    age: Natural
+  let
+    bob = Person(name: "Bob", age: 42)  # Immutable Variable, original.
+    olderBob = bob.deepCopy:            # Immutable Variable, but changed.
+      this.age = 45
+      this.name = this.name[0..^2]
+    otherBob = deepCopy(bob)            # Immutable Variable,by system.deepCopy
+  echo bob        # (name: "Bob", age: 42)      Original Immutable
+  echo olderBob   # (name: "Bo", age: 45)       Changed Immutable
+  echo otherBob   # (name: "Bob", age: 42)      Just to control is not confused

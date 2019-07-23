@@ -3,6 +3,7 @@ Contra
 
 - Lightweight and fast Contract Programming, Design by Contract, on 9 lines of code, zero cost at runtime.
 - `Security Hardened <https://en.wikipedia.org/wiki/Hardening_%28computing%29#Binary_hardening>`_ mode (based from `Debian Hardened <https://wiki.debian.org/Hardening>`_ & `Gentoo Hardened <https://wiki.gentoo.org/wiki/Hardened_Gentoo>`_, checked with `hardening-check <https://bitbucket.org/Alexander-Shukaev/hardening-check>`_).
+- Change `Immutable variables <https://en.wikipedia.org/wiki/Immutable_object>`_, into Immutable variables.
 
 .. image:: https://raw.githubusercontent.com/juancarlospaco/nim-contra/master/contra.jpg
   :align: center
@@ -28,6 +29,19 @@ Use
 
   discard funcWithContract(2)
   # discard funcWithContract(0)  # Uncomment to see it fail as expected.
+
+  type Person = object # Changing Immutable Variables,into Immutable Variables.
+    name: string
+    age: Natural
+
+  let
+    bob = Person(name: "Bob", age: 42)  # Immutable Variable, original.
+    olderBob = bob.deepCopy:            # Immutable Variable, but changed.
+      this.age = 45
+      this.name = this.name[0..^2]
+
+  echo bob       # (name: "Bob", age: 42)      Original Immutable
+  echo olderBob  # (name: "Bo", age: 45)       Changed Immutable
 
 
 Use
@@ -56,6 +70,11 @@ Use
 - ``hardenedBuild()`` is 1 Template, takes no arguments, returns nothing.
 - ``hardenedBuild()`` must be called on the root top of your main module.
 - Hardened build is ideal companion for a Contracts module, still optional anyway.
+
+**Changing Immutable Variables:**
+
+- ``deepCopy`` Lets you change Immutable Variables, into Immutable Variables, using Mutated copies.
+It mimic Scala's ``val immutableButChanged = immutable.copy(attribute = 9)``. Immutable programming.
 
 
 Install
