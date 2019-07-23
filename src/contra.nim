@@ -55,8 +55,8 @@ template deepCopy*(immutableVariable, changes: untyped): untyped =
     this
 
 
-when isMainModule:
-  # runnableExamples:
+# when isMainModule:
+runnableExamples:
   hardenedBuild() ## Security Hardened mode enabled, compile with:  -d:hardened
 
   func funcWithContract(mustBePositive: int): int {.compiletime.} =

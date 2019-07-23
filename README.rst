@@ -73,8 +73,7 @@ Use
 
 **Changing Immutable Variables:**
 
-- ``deepCopy`` Lets you change Immutable Variables, into Immutable Variables, using Mutated copies.
-It mimic Scala's ``val immutableButChanged = immutable.copy(attribute = 9)``. Immutable programming.
+- ``deepCopy`` Lets you change Immutable Variables, into Immutable Variables, using Mutated copies. It mimic Scala's ``val immutableButChanged = immutable.copy(attribute = 9)``. Immutable programming.
 
 
 Install
