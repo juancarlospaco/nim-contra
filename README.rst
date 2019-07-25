@@ -63,8 +63,8 @@ Changing Immutable Variables
   echo olderBob  # (name: "Bo", age: 45)       Changed Immutable
 
 
-Use
----
+Description
+-----------
 
 **Contract Preconditions:**
 
