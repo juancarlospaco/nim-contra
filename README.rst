@@ -62,6 +62,12 @@ Changing Immutable Variables
   echo bob       # (name: "Bob", age: 42)      Original Immutable
   echo olderBob  # (name: "Bo", age: 45)       Changed Immutable
 
+Its inspired by Scala:
+
+.. code-block:: scala
+
+  val immutableButChanged = immutable.copy(attribute = 9)
+
 
 Description
 -----------
