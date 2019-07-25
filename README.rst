@@ -13,13 +13,14 @@ Contra
 
 
 Use
----
+===
+
+Design By Contract 
+------------------
 
 .. code-block:: nim
 
   import contra
-
-  hardenedBuild()  # Security Hardened mode enabled, compile with:  -d:hardened
 
   func funcWithContract(mustBePositive: int): int =
     preconditions mustBePositive > 0, mustBePositive > -1 ## Require (Preconditions)
@@ -29,6 +30,24 @@ Use
 
   discard funcWithContract(2)
   # discard funcWithContract(0)  # Uncomment to see it fail as expected.
+
+
+Hardened mode
+-------------
+
+.. code-block:: nim
+
+  import contra
+  hardenedBuild()  # Security Hardened mode enabled, compile with:  -d:hardened
+  echo "Hello World"
+
+
+Changing Immutable Variables
+----------------------------
+
+.. code-block:: nim
+
+  import contra
 
   type Person = object # Changing Immutable Variables,into Immutable Variables.
     name: string
