@@ -72,8 +72,8 @@ Its inspired by Scala:
 Compile-Time Term-Rewriting Template Optimizations
 --------------------------------------------------
 
-- ``echo`` and ``debugEcho`` gets Rewritten to use ``fwrite`` from ``stdio.h`` directly.
-- ``fwrite`` is faster than ``puts``, ``puts`` is faster than ``printf``. ``fwrite() > puts() > printf()``.
+- ``echo()`` and ``debugEcho()`` gets Rewritten to use ``fwrite()`` from ``stdio.h`` directly. Logging is not touched.
+- ``fwrite()`` is faster than ``puts()``, ``puts()`` is faster than ``printf()``. ``fwrite() > puts() > printf()``.
 - Optimizations are optional, only get enabled ``when defined(release) and defined(danger)``.
 
 .. code-block:: nim
