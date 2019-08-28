@@ -69,6 +69,42 @@ Its inspired by Scala:
   val immutableButChanged = immutable.copy(attribute = 9)
 
 
+Compile-Time Term-Rewriting Template Optimizations
+--------------------------------------------------
+
+- ``echo`` and ``debugEcho`` gets Rewritten to use ``fwrite`` from ``stdio.h`` directly.
+- ``fwrite`` is faster than ``puts``, ``puts`` is faster than ``printf``. ``fwrite() > puts() > printf()``.
+- Optimizations are optional, only get enabled ``when defined(release) and defined(danger)``.
+
+.. code-block:: nim
+
+  echo "a", "b", "c"
+
+Gets optimized to:
+
+.. code-block:: c
+
+  fwrite("abc\012", ((unsigned int) 1), ((unsigned int) 4), stdout);
+
+- Float Division is +2x slow than multiplication usually.
+- Float Division gets Rewritten to multiplication with the inverse.
+- Example ``x / 3.0`` --> ``x * static(1.0 / 3.0)``.
+- Optimizations are optional, only get enabled ``when defined(release) and defined(danger)``.
+
+.. code-block:: nim
+
+  var x, y = 2.0
+  echo x / 2.0
+
+Gets optimized to:
+
+.. code-block:: c
+
+  NF x_9b3J8iZeIHRoRKYxMY9a9bzzQ;
+  x_9b3J8iZeIHRoRKYxMY9a9bzzQ = 2.0000000000000000e+00;
+  ( (NF)(x_9b3J8iZeIHRoRKYxMY9a9bzzQ) * (NF)(5.0000000000000000e-01) );
+
+
 Description
 -----------
 
