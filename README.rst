@@ -104,6 +104,8 @@ Gets optimized to:
   x_9b3J8iZeIHRoRKYxMY9a9bzzQ = 2.0000000000000000e+00;
   ( (NF)(x_9b3J8iZeIHRoRKYxMY9a9bzzQ) * (NF)(5.0000000000000000e-01) );
 
+- `For more info check this commit. <https://github.com/juancarlospaco/nim-contra/commit/16f0bd40a1584a589c234dd16e59074ff8d7dabd#commitcomment-34858271>`_
+
 
 Description
 -----------
