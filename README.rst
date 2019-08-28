@@ -86,7 +86,7 @@ Gets optimized to:
 
   fwrite("abc\012", ((unsigned int) 1), ((unsigned int) 4), stdout);
 
-- Float Division is +2x slow than multiplication usually.
+- Float Division is slower than multiplication. `1` CPU Cycle for Multiplication, `100` CPU Cycles or more for Division.
 - Float Division gets Rewritten to multiplication with the inverse.
 - Example ``x / 3.0`` --> ``x * static(1.0 / 3.0)``.
 - Optimizations are optional, only get enabled ``when defined(release) and defined(danger)``.
