@@ -9,6 +9,14 @@
 ## `Concepts <https://nim-lang.org/docs/manual_experimental.html#concepts>`_
 ## - https://en.wikipedia.org/wiki/Defensive_programming#Other_techniques
 ## - http://stackoverflow.com/questions/787643/benefits-of-assertive-programming
+import macros
+from strutils import strip, splitLines
+
+
+const msg0 = "## **Self-Documenting Design by Contract:** Require Preconditions *("
+const err0 = """Contra Require Precondition wrong syntax (conditionBool, errorString),
+errorString must be 1 non-empty single-line human-friendly descriptive string literal,
+Self-Documenting Design by Contract will replace errorString with macros.NimNode.lineInfo: """
 
 
 template preconditions*(requires: varargs[bool]) =
@@ -23,6 +31,27 @@ template postconditions*(ensures: varargs[bool]) =
     defer:
       for i, contractPostcondition in ensures: assert(contractPostcondition,
           "\nContract Postcondition (Ensure) failed assert on position: " & $i)
+
+macro preconditions*(requires: varargs[tuple[conditionBool: bool, errorString: string]]) =
+  ## Require (Preconditions) for Self-Documenting Design by Contract on proc/func.
+  when not defined(release) or defined(contracts):
+    var i: byte
+    var code, msg, lin, nimc: string
+    var rsts = msg0 & $requires.len & " total)*.\n"
+    for line in requires:
+      lin = line.lineInfo
+      msg = line[1].strVal.strip
+      nimc = strip($line[0].toStrLit)
+      if msg.len == 0:
+        warning(err0 & lin)
+        msg = lin
+      if msg.splitLines.len != 1:
+        warning(err0 & lin)
+        msg = lin
+      inc i
+      rsts &= "## * **" & $i & "** ``assert(" & nimc & ", r\"" & msg & "\")`` --> " & lin & "\n"
+      code &= "assert(bool(" & nimc & "), r\"\"\"" & msg & "\"\"\")\n"
+    result = parseStmt(rsts & code)
 
 
 template hardenedBuild*() =
@@ -113,11 +142,15 @@ runnableExamples:
   # ^ Hardened Build Templates ########## v Preconditions/Postconditions (DbC)
 
 
-  func funcWithContract(mustBePositive: int): int {.compiletime.} =
-    preconditions mustBePositive > 0, mustBePositive > -1 ## Require (Preconditions)
-    postconditions result > 0, result < int32.high        ## Ensure  (Postconditions)
-    result = mustBePositive - 1 ## Mimic some logic, notice theres no "body" block
-  assert funcWithContract(2) > 0
+  func funcWithContract*(mustBePositive: int): int =
+    preconditions((mustBePositive > 0, "Preconditions Document itself"),
+      (mustBePositive > -1, "RST Doc via Macros"), (2 > 1, "DbC FTW"),
+    )                                                       ## Require (Preconditions) Alternative 1.
+    # preconditions mustBePositive > 0, mustBePositive > -1 ## Require (Preconditions) Alternative 2.
+    postconditions result > 0, result < int32.high          ## Ensure  (Postconditions)
+    result = mustBePositive - 1 ## Mimic some logic,notice theres no "body" block
+
+  discard funcWithContract(1)
 
   func funcWithoutContract(mustBePositive: int): int =
     result = mustBePositive - 1 ## Same func but without Contract templates.
