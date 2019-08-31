@@ -1,8 +1,8 @@
 # Package
 
-version       = "0.2.0"
+version       = "0.2.1"
 author        = "Juan Carlos"
-description   = "Lightweight Contract Programming and Security Hardened mode and Immutable Programming, Design by Contract, on 9 LoC, NimScript, JavaScript, compile-time."
+description   = "Lightweight Self-Documenting Design by Contract Programming and Security Hardened mode and Immutable Programming, NimScript, JavaScript, compile-time."
 license       = "MIT"
 srcDir        = "src"
 
