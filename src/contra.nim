@@ -118,7 +118,7 @@ template hardenedBuild*() =
         fwrite($s0 & $s1 & $s2 & $s3 & $s4 & $s5 & $s6 & $s7 & $s8 & "\n",
           nmemb = len($s0) + len($s1) + len($s2) + len($s3) + len($s4) + len($s5) + len($s6) + len($s7) + len($s8) + 1)
       template optimizedFloatDivision*{f0 / f1}(f0: SomeFloat, f1: SomeFloat{lit, noalias}): untyped =
-        ## Float Division 2x slow than multiplication. Eg x/3.0 --> x*(1.0/3.0)
+        ## Float Division slower than multiplication. Eg x/3.0 --> x*(1.0/3.0)
         f0 * static(1.0 / f1)  # Rewrite division by constant to multiplication with the inverse.
 
   when defined(release) and defined(gcc):
