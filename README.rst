@@ -87,7 +87,7 @@ Is different than ``echo`` that you dont have to remove it from the code for Rel
 
 Produces No code at all when build for Release, zero runtime performance cost. ``assercho`` is a Macro.
 
-``assercho`` when ``assert`` is **``true``** (Ok)
+``assercho`` when ``assert`` is ``true`` (Ok)
 
 .. code-block:: nim
 
@@ -102,7 +102,7 @@ Produces No code at all when build for Release, zero runtime performance cost. `
   Nim   foo > bar = true --> /home/juan/code/example.nim(3, 8)
   C     (bar_1kqJRPNteJWdjlPR09aibuA < foo_FvFJfeatIb8qi8DN7lzoAQ) = 1 --> /tmp/example.nim.c(9)
 
-``assercho`` when ``assert`` is **``false``** (Error)
+``assercho`` when ``assert`` is ``false`` (Error)
 
 .. code-block:: nim
 
