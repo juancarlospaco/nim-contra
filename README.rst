@@ -75,7 +75,7 @@ Its inspired by Scala:
 Assercho
 --------
 
-``assert(conditionBool, errorString)`` + ``echo(Nim_Code)`` + ``printf(C_Code)`` Combined 3-in-1,
+``assert(conditionBool, errorString)`` + ``echo(Nim_Code)`` + ``printf(C_Code)`` Combined *"3-in-1"*,
 but only ``when not defined(release) and not defined(danger)`` for Debugging purposes.
 
 C Source code debug is similar to JS Source Maps, shows C code corresponding to the same Nim code.
