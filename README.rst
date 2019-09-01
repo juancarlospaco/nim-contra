@@ -77,12 +77,16 @@ Assercho
 
 ``assert(conditionBool, errorString)`` + ``echo(Nim_Code)`` + ``printf(C_Code)`` Combined,
 but only ``when not defined(release) and not defined(danger)`` for Debugging purposes.
+
 C Source code debug is similar to JS Source Maps, shows C code corresponding to the same Nim code.
+
 The assertion is a vanilla ``assert``, when fails produces an ``AssertionError``.
+
 Is different than ``echo`` that you dont have to remove it from the code for Release builds.
+
 Produces No code at all when build for Release, zero runtime performance cost. ``assercho`` is a Macro.
 
-**``assercho`` when ``assert`` is ``true``** (Ok)
+``assercho`` when ``assert`` is ``true`` (Ok)
 
 .. code-block:: nim
 
@@ -97,7 +101,7 @@ Produces No code at all when build for Release, zero runtime performance cost. `
   Nim   bar < foo = true --> /home/juan/code/example.nim(3, 8)
   C     (bar_1kqJRPNteJWdjlPR09aibuA < foo_FvFJfeatIb8qi8DN7lzoAQ) = 1 --> /tmp/example.nim.c(9)
 
-**``assercho`` when ``assert`` is ``false``:** (Error)
+``assercho`` when ``assert`` is ``false`` (Error)
 
 .. code-block:: nim
 
