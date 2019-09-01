@@ -13,10 +13,28 @@ import macros
 from strutils import strip, splitLines
 
 
+when not defined(danger) and not defined(release) and defined(gcc):
+  when defined(linux) or defined(windows) or defined(macos) and not defined(js):
+    import os  # C Source code debug,similar to JS Source Maps,prints C code corresponding to the same Nim code.
+    func internalAssercho(arg: any): void {.importc: "internalAssercho", header: currentSourcePath().splitPath.head / "assercho.h".}
+
+
 const msg0 = "## **Self-Documenting Design by Contract:** Require Preconditions *("
 const err0 = """Contra Require Precondition wrong syntax (conditionBool, errorString),
 errorString must be 1 non-empty single-line human-friendly descriptive string literal,
 Self-Documenting Design by Contract will replace errorString with macros.NimNode.lineInfo: """
+
+
+macro assercho*(conditionBool: bool, errorString: string) =
+  ## ``assert(conditionBool,errorString)`` + ``echo(Nim_Code)`` + ``printf(C_Code)`` Combined
+  ## but only ``when not defined(release) and not defined(danger)`` for Debug.
+  when not defined(danger) and not defined(release) and defined(gcc):
+    when defined(linux) or defined(windows) or defined(macos) and not defined(js):
+      let o_O = strip($conditionBool.toStrLit)
+      result = parseStmt(
+        "debugEcho(r\"\"\"Nim\t" & o_O & " = \"\"\", " & o_O & ", r\"\"\" --> " & conditionBool.lineInfo & "\"\"\")\n" &
+        "internalAssercho(" & o_O & ")\n" &
+        "assert(bool(" & o_O & "), r\"\"\"" & errorString.strVal.strip & "\"\"\")\n")
 
 
 template preconditions*(requires: varargs[bool]) =
@@ -173,8 +191,15 @@ runnableExamples:
   echo olderBob   # (name: "Bo", age: 45)       Changed Immutable
   echo otherBob   # (name: "Bob", age: 42)      Just to control is not confused
 
+  # ^ deepCopy Templates ############################# v assercho (assert+echo)
 
-  # ^ deepCopy Templates ######################## v echo(literal) Optimizations
+
+  let foo = 42
+  let bar = 9
+  assercho(foo > bar, "Assercho for all the Brochachos!")
+
+
+  # ^ assercho (assert+echo+C Debug) ########## v echo(literal) Optimizations
 
 
   echo "a"
