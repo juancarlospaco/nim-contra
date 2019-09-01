@@ -49,7 +49,7 @@ macro preconditions*(requires: varargs[tuple[conditionBool: bool, errorString: s
         warning(err0 & lin)
         msg = lin
       inc i
-      rsts &= "## * **" & $i & "** ``assert(" & nimc & ", r\"" & msg & "\")`` --> " & lin & "\n"
+      rsts &= "## * **" & $i & "** ``assert(" & nimc & ", \"" & msg & "\")`` --> " & lin & "\n"
       code &= "assert(bool(" & nimc & "), r\"\"\"" & msg & "\"\"\")\n"
     result = parseStmt(rsts & code)
 
