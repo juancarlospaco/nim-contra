@@ -1,7 +1,7 @@
 Contra
 ======
 
-- Lightweight and fast Contract Programming, Design by Contract, on 9 lines of code, zero cost at runtime.
+- Lightweight and fast Self-Documenting Design by Contract Programming, Design by Contract, on 9 lines of code, zero cost at runtime.
 - `Security Hardened <https://en.wikipedia.org/wiki/Hardening_%28computing%29#Binary_hardening>`_ mode (based from `Debian Hardened <https://wiki.debian.org/Hardening>`_ & `Gentoo Hardened <https://wiki.gentoo.org/wiki/Hardened_Gentoo>`_, checked with `hardening-check <https://bitbucket.org/Alexander-Shukaev/hardening-check>`_).
 - Change `Immutable variables <https://en.wikipedia.org/wiki/Immutable_object>`_, into Immutable variables, Immutable programming.
 
@@ -15,8 +15,11 @@ Contra
 Use
 ===
 
-Design By Contract 
+Design By Contract
 ------------------
+
+.. image:: https://raw.githubusercontent.com/juancarlospaco/nim-contra/master/selfdocumentdbc.png
+  :align: center
 
 .. code-block:: nim
 
