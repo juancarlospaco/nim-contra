@@ -99,7 +99,7 @@ Produces No code at all when build for Release, zero runtime performance cost. `
 
 .. code-block:: bash
 
-  Nim   bar < foo = true --> /home/juan/code/example.nim(3, 8)
+  Nim   foo > bar = true --> /home/juan/code/example.nim(3, 8)
   C     (bar_1kqJRPNteJWdjlPR09aibuA < foo_FvFJfeatIb8qi8DN7lzoAQ) = 1 --> /tmp/example.nim.c(9)
 
 ``assercho`` when ``assert`` is ``false`` (Error)
@@ -114,8 +114,8 @@ Produces No code at all when build for Release, zero runtime performance cost. `
 
 .. code-block:: bash
 
-  Nim   bar < foo = true --> /home/juan/code/example.nim(3, 8)
-  C     (bar_1kqJRPNteJWdjlPR09aibuA < foo_FvFJfeatIb8qi8DN7lzoAQ) = 1 --> /tmp/example.nim.c(9)
+  Nim   foo < bar = false --> /home/juan/code/example.nim(3, 8)
+  C     (bar_1kqJRPNteJWdjlPR09aibuA < foo_FvFJfeatIb8qi8DN7lzoAQ) = 0 --> /tmp/example.nim.c(9)
   Error: unhandled exception: `foo < bar` Assercho for all the Brochachos! [AssertionError]
 
 
