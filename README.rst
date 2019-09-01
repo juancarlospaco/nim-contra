@@ -121,6 +121,18 @@ Produces No code at all when build for Release, zero runtime performance cost. `
   C     (bar_1kqJRPNteJWdjlPR09aibuA < foo_FvFJfeatIb8qi8DN7lzoAQ) = 0 --> /tmp/example.nim.c(9)
   Error: unhandled exception: `foo < bar` Assercho for all the Brochachos! [AssertionError]
 
+Replaces approx the following code:
+
+.. code-block:: nim
+
+  when not defined(danger) and not defined(release):
+    debugEcho "foo = ", foo
+    debugEcho "bar = ", bar
+    debugEcho foo > bar
+    assert foo > bar, "Error message"
+    # Custom Macro to get the Nim Source Code line info of origin (macros.NimNode.LineInfo)
+    # Custom Macro/Template to get the C Source Code line info of origin
+
 
 Compile-Time Term-Rewriting Template Optimizations
 --------------------------------------------------
