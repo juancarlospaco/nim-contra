@@ -80,7 +80,7 @@ Assercho
 .. image:: https://raw.githubusercontent.com/juancarlospaco/nim-contra/master/assercho.png
   :align: center
 
-- Is different than ``echo`` that you dont have to remove it from the code for Release builds.
+- Is different than ``echo`` that you dont have to manually remove it from the code for Release builds.
 - Is different than ``assert`` that it prints to terminal when ``conditionBool`` is ``true``.
 
 It only works ``when not defined(release) and not defined(danger)`` for Debugging purposes.
