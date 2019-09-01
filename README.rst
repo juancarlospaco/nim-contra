@@ -80,13 +80,14 @@ Assercho
 .. image:: https://raw.githubusercontent.com/juancarlospaco/nim-contra/master/assercho.png
   :align: center
 
+- Is different than ``echo`` that you dont have to remove it from the code for Release builds.
+- Is different than ``assert`` that it prints to terminal when ``conditionBool`` is ``true``.
+
 It only works ``when not defined(release) and not defined(danger)`` for Debugging purposes.
 
 C Source code debug is similar to JS Source Maps, shows C code corresponding to the same Nim code.
 
 The assertion is a vanilla ``assert``, when fails produces an ``AssertionError``.
-
-Is different than ``echo`` that you dont have to remove it from the code for Release builds.
 
 You can use only the ``echo`` functionality and ignore the ``assert`` functionality,
 by simply hardcoding ``true`` on the ``conditionBool`` first argument,
