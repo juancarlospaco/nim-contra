@@ -89,11 +89,6 @@ C Source code debug is similar to JS Source Maps, shows C code corresponding to 
 
 The assertion is a vanilla ``assert``, when fails produces an ``AssertionError``.
 
-You can use only the ``echo`` functionality and ignore the ``assert`` functionality,
-by simply hardcoding ``true`` on the ``conditionBool`` first argument,
-then you have an ``echo`` that produces No code at all when build for Release
-(you dont need to remove it or comment it out from the code).
-
 Produces No code at all when build for Release, zero runtime performance cost. ``assercho`` is a Macro.
 
 ``assercho`` when ``assert`` is ``true`` (Ok)
