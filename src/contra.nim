@@ -16,7 +16,7 @@ from strutils import strip, splitLines
 when not defined(danger) and not defined(release) and defined(gcc):
   when defined(linux) or defined(windows) or defined(macos) and not defined(js):
     import os  # C Source code debug,similar to JS Source Maps,prints C code corresponding to the same Nim code.
-    func internalAssercho(arg: Any): void {.importc: "internalAssercho", header: currentSourcePath().splitPath.head / "assercho.h".}
+    func internalAssercho(arg: any): void {.importc: "internalAssercho", header: currentSourcePath().splitPath.head / "assercho.h".}
 
 
 const msg0 = "## **Self-Documenting Design by Contract:** Require Preconditions *("
@@ -91,48 +91,48 @@ template hardenedBuild*() =
     when defined(linux) or defined(windows) or defined(macos) and not defined(js):
       {.hint: "Compile-Time Term-Rewriting Template Optimizations is enabled.".}
       func fwrite(formatstr: cstring, size = 1.cuint, nmemb: cuint, stream = stdout) {.importc, header: "<stdio.h>".}
-      template echo*(s: Any{lit, noalias}) =          # SomeOrdinal? SomeNumber?
+      template echo*(s: any{lit, noalias}) =          # SomeOrdinal? SomeNumber?
         fwrite($s & "\n", nmemb = len($s) + 1)        # Whats better?
-      template echo*(s0, s1: Any{lit, noalias}) =  # fwrite() > puts() > printf()
+      template echo*(s0, s1: any{lit, noalias}) =  # fwrite() > puts() > printf()
         fwrite($s0 & $s1 & "\n", nmemb = len($s0) + len($s1) + 1)
-      template echo*(s0, s1, s2: Any{lit, noalias}) =
+      template echo*(s0, s1, s2: any{lit, noalias}) =
         fwrite($s0 & $s1 & $s2 & "\n", nmemb = len($s0) + len($s1) + len($s2) + 1)
-      template echo*(s0, s1, s2, s3: Any{lit, noalias}) =
+      template echo*(s0, s1, s2, s3: any{lit, noalias}) =
         fwrite($s0 & $s1 & $s2 & $s3 & "\n", nmemb = len($s0) + len($s1) + len($s2) + len($s3) + 1)
-      template echo*(s0, s1, s2, s3, s4: Any{lit, noalias}) =
+      template echo*(s0, s1, s2, s3, s4: any{lit, noalias}) =
         fwrite($s0 & $s1 & $s2 & $s3 & $s4 & "\n", nmemb = len($s0) + len($s1) + len($s2) + len($s3) + len($s4) + 1)
-      template echo*(s0, s1, s2, s3, s4, s5: Any{lit, noalias}) =
+      template echo*(s0, s1, s2, s3, s4, s5: any{lit, noalias}) =
         fwrite($s0 & $s1 & $s2 & $s3 & $s4 & $s5 & "\n",
           nmemb = len($s0) + len($s1) + len($s2) + len($s3) + len($s4) + len($s5) + 1)
-      template echo*(s0, s1, s2, s3, s4, s5, s6: Any{lit, noalias}) =
+      template echo*(s0, s1, s2, s3, s4, s5, s6: any{lit, noalias}) =
         fwrite($s0 & $s1 & $s2 & $s3 & $s4 & $s5 & $s6 & "\n",
           nmemb = len($s0) + len($s1) + len($s2) + len($s3) + len($s4) + len($s5) + len($s6) + 1)
-      template echo*(s0, s1, s2, s3, s4, s5, s6, s7: Any{lit, noalias}) =
+      template echo*(s0, s1, s2, s3, s4, s5, s6, s7: any{lit, noalias}) =
         fwrite($s0 & $s1 & $s2 & $s3 & $s4 & $s5 & $s6 & $s7 & "\n",
           nmemb = len($s0) + len($s1) + len($s2) + len($s3) + len($s4) + len($s5) + len($s6) + len($s7) + 1)
-      template echo*(s0, s1, s2, s3, s4, s5, s6, s7, s8: Any{lit, noalias}) =
+      template echo*(s0, s1, s2, s3, s4, s5, s6, s7, s8: any{lit, noalias}) =
         fwrite($s0 & $s1 & $s2 & $s3 & $s4 & $s5 & $s6 & $s7 & $s8 & "\n",
           nmemb = len($s0) + len($s1) + len($s2) + len($s3) + len($s4) + len($s5) + len($s6) + len($s7) + len($s8) + 1)
-      template debugEcho*(s: Any{lit, noalias}) =
+      template debugEcho*(s: any{lit, noalias}) =
         fwrite($s & "\n", nmemb = len($s) + 1)
-      template debugEcho*(s0, s1: Any{lit, noalias}) =
+      template debugEcho*(s0, s1: any{lit, noalias}) =
         fwrite($s0 & $s1 & "\n", nmemb = len($s0) + len($s1) + 1)
-      template debugEcho*(s0, s1, s2: Any{lit, noalias}) =
+      template debugEcho*(s0, s1, s2: any{lit, noalias}) =
         fwrite($s0 & $s1 & $s2 & "\n", nmemb = len($s0) + len($s1) + len($s2) + 1)
-      template debugEcho*(s0, s1, s2, s3: Any{lit, noalias}) =
+      template debugEcho*(s0, s1, s2, s3: any{lit, noalias}) =
         fwrite($s0 & $s1 & $s2 & $s3 & "\n", nmemb = len($s0) + len($s1) + len($s2) + len($s3) + 1)
-      template debugEcho*(s0, s1, s2, s3, s4: Any{lit, noalias}) =
+      template debugEcho*(s0, s1, s2, s3, s4: any{lit, noalias}) =
         fwrite($s0 & $s1 & $s2 & $s3 & $s4 & "\n", nmemb = len($s0) + len($s1) + len($s2) + len($s3) + len($s4) + 1)
-      template debugEcho*(s0, s1, s2, s3, s4, s5: Any{lit, noalias}) =
+      template debugEcho*(s0, s1, s2, s3, s4, s5: any{lit, noalias}) =
         fwrite($s0 & $s1 & $s2 & $s3 & $s4 & $s5 & "\n",
           nmemb = len($s0) + len($s1) + len($s2) + len($s3) + len($s4) + len($s5) + 1)
-      template debugEcho*(s0, s1, s2, s3, s4, s5, s6: Any{lit, noalias}) =
+      template debugEcho*(s0, s1, s2, s3, s4, s5, s6: any{lit, noalias}) =
         fwrite($s0 & $s1 & $s2 & $s3 & $s4 & $s5 & $s6 & "\n",
           nmemb = len($s0) + len($s1) + len($s2) + len($s3) + len($s4) + len($s5) + len($s6) + 1)
-      template debugEcho*(s0, s1, s2, s3, s4, s5, s6, s7: Any{lit, noalias}) =
+      template debugEcho*(s0, s1, s2, s3, s4, s5, s6, s7: any{lit, noalias}) =
         fwrite($s0 & $s1 & $s2 & $s3 & $s4 & $s5 & $s6 & $s7 & "\n",
           nmemb = len($s0) + len($s1) + len($s2) + len($s3) + len($s4) + len($s5) + len($s6) + len($s7) + 1)
-      template debugEcho*(s0, s1, s2, s3, s4, s5, s6, s7, s8: Any{lit, noalias}) =
+      template debugEcho*(s0, s1, s2, s3, s4, s5, s6, s7, s8: any{lit, noalias}) =
         fwrite($s0 & $s1 & $s2 & $s3 & $s4 & $s5 & $s6 & $s7 & $s8 & "\n",
           nmemb = len($s0) + len($s1) + len($s2) + len($s3) + len($s4) + len($s5) + len($s6) + len($s7) + len($s8) + 1)
       template optimizedFloatDivision*{f0 / f1}(f0: SomeFloat, f1: SomeFloat{lit, noalias}): untyped =
@@ -168,7 +168,7 @@ runnableExamples:
     postconditions result > 0, result < int32.high          ## Ensure  (Postconditions)
     result = mustBePositive - 1 ## Mimic some logic,notice theres no "body" block
 
-  discard funcWithContract(1)
+  discard funcWithContract(2)
 
   func funcWithoutContract(mustBePositive: int): int =
     result = mustBePositive - 1 ## Same func but without Contract templates.
