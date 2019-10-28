@@ -140,7 +140,7 @@ template hardenedBuild*() =
         f0 * static(1.0 / f1)  # Rewrite division by constant to multiplication with the inverse.
 
   when defined(release) and defined(gcc):
-    {.passL: "-s", passC: "-fno-ident".}
+    {.passL: "-s".}
 
 
 template deepCopy*(immutableVariable, changes: untyped): untyped =
