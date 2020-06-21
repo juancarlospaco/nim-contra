@@ -222,43 +222,6 @@ FAQ
 
 .. code-block::
 
-  $ cat example.nim
-  import contracts
-  from math import sqrt, floor
-  proc isqrt[T: SomeInteger](x: T): T {.contractual.} =
-    require:
-      x >= 0
-    ensure:
-      result * result <= x
-      (result+1) * (result+1) > x
-    body:
-      (T)(x.toBiggestFloat().sqrt().floor().toBiggestInt())
-  echo isqrt(18)
-  echo isqrt(-8)
-
-  $ nim js -r example.nim
-  Error: undeclared identifier: 'deepCopy'
-
-  $ nim e example.nim
-  Error: undeclared identifier: 'deepCopy'
-
-  $ cat example2compiletime.nim
-  import contracts
-  from math import sqrt, floor
-  proc isqrt[T: SomeInteger](x: T): T {.contractual, compiletime.} =
-    require:
-      x >= 0
-    ensure:
-      result * result <= x
-      (result+1) * (result+1) > x
-    body:
-      (T)(x.toBiggestFloat().sqrt().floor().toBiggestInt())
-  echo isqrt(18)
-  echo isqrt(-8)
-
-  $ nim c -r example2compiletime.nim
-  Error: request to generate code for .compileTime proc: isqrt
-
   $ cloc ~/.nimble/pkgs/contracts-0.1.0/
   Language          files         blank        comment        code
   ----------------------------------------------------------------
